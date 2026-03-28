@@ -1,0 +1,20 @@
+import pandas as pd 
+import yfinance as yf 
+import numpy as np 
+ticker = ['AAPL', 'MSFT'] 
+start_date = "2024-01-01" 
+end_date = "2024-12-31" 
+data = yf.download(ticker, start=start_date, end=end_date) 
+data = data.dropna() 
+print("\nMean of Each Dataset ===") 
+print(data['Close'].mean()) 
+print("\nMedian of Each Dataset ===") 
+print(data['Close'].median()) 
+print("\nStandard Deviation ===") 
+print(data['Close'].std()) 
+print("\nMinimum Values ===") 
+print(data['Close'].min()) 
+print("\nMaximum Values ===") 
+print(data['Close'].max()) 
+print("\nFull Descriptive Statistics ===") 
+print(data['Close'].describe()) 
