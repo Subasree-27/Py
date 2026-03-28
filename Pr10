@@ -1,0 +1,35 @@
+import yfinance as yf 
+import matplotlib.pyplot as plt 
+from matplotlib.widgets import RadioButtons 
+ticker = ['AAPL', 'MSFT'] 
+data = yf.download(ticker, start="2024-01-01", end="2024-12-31") 
+data = data['Close'].dropna() 
+fig, ax = plt.subplots() 
+plt.subplots_adjust(left=0.3) 
+def show(chart): 
+    ax.clear() 
+    if chart == "Line": 
+        data.plot(ax=ax) 
+    elif chart == "Bar": 
+        data.plot(kind="bar", ax=ax) 
+    elif chart == "Pie": 
+        data.sum().plot(kind="pie", ax=ax) 
+elif chart == "Scatter": 
+        ax.scatter(data['AAPL'], data['MSFT'], c='red', label='AAPL vs MSFT') 
+        ax.set_xlabel("AAPL Closing Price") 
+        ax.set_ylabel("MSFT Closing Price") 
+        ax.legend() 
+    ax.set_title(chart + " Chart") 
+    plt.draw() 
+box = plt.axes([0.05, 0.3, 0.2, 0.4]) 
+radio = RadioButtons(box, ["Line", "Bar", "Pie", "Scatter"]) 
+radio.on_clicked(show)
+show("Line") 
+plt.show() 
+''' 
+0.05    distance from left side 
+0.3     distance from bottom 
+0.2     width of button box 
+0.4     height of button box 
+''' 
+ 
