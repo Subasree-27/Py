@@ -1,0 +1,11 @@
+import pandas as pd 
+import yfinance as yf 
+import numpy as np 
+ticker = ['MSFT', 'AAPL', 'GOOG'] 
+start_date = "2026-01-01" 
+end date "2026-02-01" 
+data=yf.download(ticker, start=start_date, end=end_date, auto_adjust=False) 
+print(data) 
+# Remove any rows with missing values (NaN) 
+data = data.dropna() 
+print(data) 
