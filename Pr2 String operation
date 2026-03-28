@@ -1,0 +1,12 @@
+print("\nString Operation")
+print("********)
+string input("Enter a string: ")
+#(i) Extract substring
+start int(input("Enter the starting index substring: "))
+endint(input("Enter the ending index for substring: "))
+substring-string[start:end]
+print("Substring:", substring)
+reverse-string[::-1]
+print("Reversed String:", reverse)
+count-len(string)
+print("Count the Character:", count)
