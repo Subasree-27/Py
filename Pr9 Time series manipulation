@@ -1,0 +1,12 @@
+import yfinance as yf 
+import matplotlib.pyplot as plt 
+data = yf.download("AAPL", 
+                   start="2024-01-01", 
+                   end="2024-12-31") 
+price = data['Close'] 
+ret = price.pct_change() 
+plt.plot(price.index, ret) 
+plt.title("Stock Time Series") 
+plt.xlabel("Date") 
+plt.ylabel("Daily Return") 
+plt.show() 
